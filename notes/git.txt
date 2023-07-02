@@ -1,0 +1,38 @@
+## 初始化 Git 儲存庫。
+git init
+
+## 將專案中的檔案加入 Git 儲存庫。
+git add .   (# 將所有修改過的檔案加入暫存區)
+
+## 執行初始提交（initial commit）。
+git commit -m "Initial commit"   (# 提交並附帶提交訊息)
+
+## 設置遠端儲存庫的 URL。
+git remote add origin <GitHub 專案的 URL>
+
+## 將本地端的提交推送到遠端儲存庫。
+git push -u origin master
+
+==============================================================
+使用 Visual Studio Code 的 Source Control 功能將專案上傳至 GitHub，請按照以下步驟進行操作：
+
+初始化 Git 儲存庫：在 Visual Studio Code 中，打開你的專案文件夾。
+然後，按下 Ctrl + Shift + G 或點擊左側面板的 Source Control 圖標，以打開 Source Control 面板。
+在 Source Control 面板中，點擊 "Initialize Repository" 按鈕，這將初始化一個 Git 儲存庫。
+
+將更改加入暫存區：在 Source Control 面板中，你將看到專案中已更改的文件列表。
+選擇要提交的更改，然後點擊 "+" 圖標，將更改加入暫存區。
+
+提交更改：在 Source Control 面板中，鍵入提交消息並按下 Ctrl + Enter 或點擊 "√" 圖標，以提交更改。
+
+連接到遠端儲存庫：在 Source Control 面板的右上方，點擊 "..." 圖標，然後選擇 "Publish to GitHub"。
+如果你還沒有登入 GitHub 帳戶，將提示你進行登入。完成登入後，你可以選擇要將儲存庫上傳到的 GitHub 儲存庫。
+
+上傳至 GitHub：在選擇 GitHub 儲存庫後，點擊 "Publish Repository"，這將把你的專案上傳至 GitHub。
+一旦上傳完成，你的專案將在 GitHub 上可見。
+
+請注意，這些步驟假設你已經在 GitHub 上創建了一個空的儲存庫。
+如果尚未創建儲存庫，請先在 GitHub 上創建一個儲存庫，然後再執行上述步驟。
+
+
+

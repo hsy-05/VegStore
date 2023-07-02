@@ -1,0 +1,36 @@
+## 建立 Controller
+php artisan make:controller InspiringController
+
+------------------------------------------------------------------
+## 建立 migration
+php artisan make:migration create_quotes_table
+
+------------------------------------------------------------------
+## 建立 model
+php artisan make:model Post
+
+------------------------------------------------------------------
+## 執行 Migration
+php artisan migrate
+
+------------------------------------------------------------------
+## 列出目前所有 Migration 狀態
+php artisan migrate:status
+
+------------------------------------------------------------------
+## 恢復上一版本的 Migration
+php artisan migrate:rollback --step=1
+
+php artisan migrate:rollback --path=\database\migrations\flights.php
+
+------------------------------------------------------------------
+## 清除所有版本的 Migration
+php artisan migrate:reset
+
+------------------------------------------------------------------
+
+## 清除所有版本的 Migration 並重新執行
+php artisan migrate:refresh
+
+
+

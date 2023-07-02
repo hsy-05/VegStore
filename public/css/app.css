@@ -1,0 +1,121 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 標題樣式 */
+  .scene1{
+      text-shadow: -5.5px -5.5px 5px rgba(#fff, 0.3), 6.5px 6.5px 1px #ff0054;
+      color: transparent;
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: rgb(203, 104, 104);
+      font-family: 'Titan One', cursive;
+  }
+
+  /* 置頂的navbar */
+  .navTop {
+    position: fixed;
+}
+
+.navTop-transparent {
+    background-color: rgba(255, 255, 255, 0.7); /* 使用 RGBA 顏色設定半透明效果 */
+  }
+
+  /* [管理者頁面] navbar */
+  .adminNav .nav-item .nav-link{
+    transition: 0.3s ease;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+  }
+  .adminNav .nav-item:hover .nav-link {
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    padding: 6px 0;
+}
+
+.adminNav .nav-item > .nav-link.active {
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    padding: 6px 0;
+}
+
+
+/* 幻燈片carousel */
+.carousel-inner{
+    width:100%;
+    max-height: 350px ;
+  }
+
+/* .carousel-item img {
+    height: 100%;
+
+  } */
+
+
+.footer {
+    width: 100%;
+}
+
+/* 產品分類navbar */
+.navCate {
+    top: 78px;
+    bottom:auto;
+
+}
+
+/* navbar進入管理員頁面背景 */
+.adminBG {
+    background-color:yellow;
+}
+
+/* 照片大小 */
+.imageHov{
+    width: 100%;
+    transition:  1.6s;
+  }
+
+  .imageHov:hover{
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+
+  /* 分頁顯示 */
+  .pagination-container .pagination {
+    font-size: 14px;
+}
+
+.pagination-container .page-item .page-link {
+    padding: 0.25rem 0.5rem;
+}
+
+/* 購物車按鈕 */
+.btn-spCart {
+    border: 1px solid black; /* 設定邊框為黑色 1px */
+    transition: background-color 0.5s; /* 設定背景顏色的過渡效果時間 */
+}
+
+.btn-spCart:hover {
+    background-color: lightskyblue;
+    border: 1px solid black; /* 設定邊框為黑色 1px */
+}
+
+/* 副dropdown */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+
+/* ---------- */

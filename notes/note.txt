@@ -1,0 +1,26 @@
+清除程式快取
+$ php artisan cache:clear
+
+建立設定檔快取
+$ php artisan config:cache
+
+清除設定檔快取
+$ php artisan config:clear
+
+建立路由快取(路由有閉包將無法建立快取)
+$ php artisan route:cache
+
+清除路由快取
+$ php artisan route:clear
+
+建立事件快取
+$ php artisan event:cache
+
+清除事件快取
+$ php artisan event:clear
+
+建立視圖(Blade 模板)快取
+$ php artisan view:cache
+
+清除視圖(Blade 模板)快取
+$ php artisan view:clear
