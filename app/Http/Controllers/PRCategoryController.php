@@ -9,11 +9,11 @@ use App\Models\SubPRCategory;
 class PRCategoryController extends Controller
 {
     public function indexPRC()
-{
-    $categories = PRCategory::all(); // 取得所有主分類資料
-    $categorys = PRCategory::paginate(6); // 每5個資料作為一頁
-    return view('admin.productCategory', compact('categories', 'categorys'));
-}
+    {
+        $categories = PRCategory::with('subcategories')->paginate(6);
+
+        return view('admin.productCategory', compact('categories'));
+    }
 
     public function store(Request $request)
     {

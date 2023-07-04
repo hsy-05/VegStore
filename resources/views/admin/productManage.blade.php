@@ -1,7 +1,7 @@
 @extends('admin.adminPage')
 
 @section('content')
-    <p>目前的時間是：{{ date('Y-m-d H:i:s') }}</p>
+
     <div class="row">
         <div class="col text-center">
             <h2 class="text-center">產品管理</h2>
@@ -72,7 +72,7 @@
             <div class="col-md-6">
                 {!! $products->links('pagination::bootstrap-4') !!}
             </div>
-            <div class="col-md-6">
+            <div>
                 <span class="total-items">共 {!! $products->total() !!} 筆</span>
             </div>
         </div>

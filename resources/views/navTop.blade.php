@@ -1,7 +1,9 @@
 {{-- 固定在上方的navbar --}}
 <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm fixed-top navTop">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('productPage') }}"><h1 class="scene1">蔬菜購物網</h1></a>
+        <a class="navbar-brand" href="{{ route('productPage') }}">
+            <h1 class="scene1">蔬菜購物網</h1>
+        </a>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -47,17 +49,10 @@
                     <a class="nav-link" href="#"></a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
                 @can('admin')
                     <li><a href="{{ route('adminPage') }}" class="nav-link adminBG">進入管理頁面</a></li>
                 @endcan
-                <li class="nav-item ml-auto">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-shopping-cart text-danger fa-lg"></i>
-                    </a>
-                </li>
+
             </ul>
             {{-- ----- --}}
             {{-- <ul class="navbar-nav ml-auto">
@@ -117,6 +112,11 @@
                         </div>
                     </li>
                 @endguest
+                <li class="nav-item ml-auto">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-shopping-cart text-danger fa-lg"></i>
+                    </a>
+                </li>
             </ul>
 
         </div>

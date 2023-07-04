@@ -56,7 +56,7 @@ Route::post('/categorys', [PRCategoryController::class, 'store'])->name('categor
 // 更新分類
 Route::post('/categorys/{id}', [PRCategoryController::class, 'update'])->name('categorys.update');
 
-// 創建分類
+// 創建副分類
 Route::post('/subcategorys', [SubPRCategoryController::class, 'store'])->name('subcategorys.store');
 // --------------------------------------------
 
@@ -71,18 +71,3 @@ Route::post('/subcategorys', [SubPRCategoryController::class, 'store'])->name('s
 // Route::get('/', function () {
 //     return view('homePage');
 // })->name('home');
-
-
-// ==================================================================
-//                      範例
-// ==================================================================
-// 假設有個資料表叫做exams，而且已經有控制器（或者直接就想用控制器作法），那麼，路由可以這樣設定：
-// Route::get('/exam', 'ExamController@index')->name('exam.index');
-// Route::get('/exam/create', 'ExamController@create')->name('exam.create');
-// Route::post('/exam/store', 'ExamController@store')->name('exam.store');
-// Route::get('/exam/{id}', 'ExamController@show')->name('exam.show');
-// Route::get('/exam/{id}/edit', 'ExamController@edit')->name('exam.edit');
-// Route::patch('/exam/{id}', 'ExamController@update')->name('exam.update');
-// Route::delete('/exam/{id}', 'ExamController@destroy')->name('exam.destroy');
-// 上面的設定更可以簡化寫一行即可，如：
-// Route::resource('exam' , 'ExamController')

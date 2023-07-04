@@ -25,6 +25,7 @@
     </header>
 
     <div class="container mt-4">
+        <p>目前的時間：{{ date('Y-m-d H:i:s') }}</p>
         @yield('content')
     </div>
 

@@ -45,7 +45,7 @@
             <div class="col-md-6">
                 {!! $products->links('pagination::bootstrap-4') !!}
             </div>
-            <div class="col-md-6">
+            <div>
                 <span class="total-items">共 {!! $products->total() !!} 筆</span>
             </div>
         </div>

@@ -7,7 +7,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{ asset('images/ddd.jpg') }}" class="d-block w-100" alt="Image 1">
+            <img src="{{ asset('images/home1.jpg') }}" class="d-block w-100" alt="Image 1">
         </div>
         <div class="carousel-item">
             <img src="{{ asset('images/vvv.jpg') }}" class="d-block w-100" alt="Image 2">
