@@ -36,7 +36,7 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLog
 // 管理者主頁面
 Route::get('/adminPage', [ProductController::class, 'index'])->name('adminPage');
 
-
+//產品顯示頁面
 Route::get('/adminPage/productManage', [ProductController::class, 'indexPRM'])->name('productManage');
 
 

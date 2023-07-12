@@ -33,11 +33,11 @@ class Product extends Model
             $model->setAttribute('product_id', $productId);
         });
     }
-
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(PRCategory::class, 'category_id', 'category_id');
     }
+
 
     public function subcategory()
     {

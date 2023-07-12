@@ -14,6 +14,7 @@
             <tr class="table-info">
                 <th scope="col">#</th>
                 <th scope="col">產品名稱</th>
+                <th scope="col">產品分類</th>
                 <th scope="col">產品介紹</th>
                 <th scope="col">價格</th>
                 <th scope="col">產品圖片</th>
@@ -25,9 +26,17 @@
                 <tr>
                     <th scope="row" class="align-middle">{{ $loop->iteration }}</th>
                     <td class="align-middle">{{ $product->title }}</td>
+                    <td class="align-middle">
+                        @if ($product->category)
+                            {{ $product->category->category_name }}
+                        @else
+                            分類不存在
+                        @endif
+                    </td>
                     <td class="align-middle">{{ $product->description }}</td>
                     <td class="align-middle">{{ $product->price }}</td>
-                    <td class="align-middle"><img src="{{ asset('/images/uploads/productImage/' . $product->image) }}" style="width: 50px"></td>
+                    <td class="align-middle"><img src="{{ asset('/images/uploads/productImage/' . $product->image) }}"
+                            style="width: 50px"></td>
                     <td class="justify-content-center align-middle">
                         <div class="d-inline-block">
                             <button type="button" class="assign-modal btn btn-warning" data-toggle="modal"
