@@ -10,7 +10,9 @@ class ProfileController extends Controller
     {
         $this->middleware('auth');
     }
-    public function indexProfile()
+
+
+    public function index()
     {
         return view('auth.profile');
     }

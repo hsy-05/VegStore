@@ -6,38 +6,24 @@ use App\Http\Controllers\ProductController; // 新增這行
 use App\Http\Controllers\PRCategoryController; // 新增這行
 use App\Http\Controllers\SubPRCategoryController; // 新增這行
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-//顯示產品
-// Route::get('/', function () {
-//     return view('productPage');
-// })->name('productPage');
-
-//主頁面
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('productPage');
-
-Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'indexProfile'])->name('profile');
 
 // 註冊身份驗證相關路由
 Auth::routes();
 
+//主頁面
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('productPage');
+
 //登入
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 
-// 管理者主頁面
-Route::get('/adminPage', [ProductController::class, 'index'])->name('adminPage');
+//會員資料
+Route::get('/profile', [App\Http\Controllers\Auth\ProfileController::class, 'index'])->name('profile');
 
-//產品顯示頁面
-Route::get('/adminPage/productManage', [ProductController::class, 'indexPRM'])->name('productManage');
+// 管理者主頁面
+Route::get('/adminPage', [App\Http\Controllers\AdminController::class, 'viewAdminHome'])->name('adminPage');
+
+//產品管理頁面
+Route::get('/adminPage/productManage', [App\Http\Controllers\AdminController::class, 'index'])->name('productManage');
 
 
 // --------------------------------------------
@@ -56,13 +42,14 @@ Route::post('/add-to-cart/{product}', 'App\Http\Controllers\CartController@addTo
 Route::get('/cart', 'App\Http\Controllers\CartController@viewCart')->name('cart.view');
 
 // --------------------------------------------
-Route::get('/adminPage/prCategory', [PRCategoryController::class, 'indexPRC'])->name('prCategory');
 
 // 創建分類
 Route::post('/categories', [PRCategoryController::class, 'store'])->name('categories.store');
 // 更新分類
 Route::post('/categories/{id}', [PRCategoryController::class, 'update'])->name('categories.update');
 
+//副分類
+Route::get('/adminPage/prCategory', [PRCategoryController::class, 'index'])->name('prCategory');
 // 創建副分類
 Route::post('/subcategories', [SubPRCategoryController::class, 'store'])->name('subcategories.store');
 // --------------------------------------------

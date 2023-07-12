@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
-
+use App\Models\PRCategory;
 
 class HomeController extends Controller
 {
@@ -33,9 +33,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    // 主頁面
     public function index()
     {
-        $products = Product::paginate(6);  //每5個資料作為一頁
-        return view('productPage', compact('products'));
+        $categories = PRCategory::all(); // 取得所有主分類資料
+        $products = Product::with('category')->paginate(6);
+        return view('home.product.productPage', compact('products', 'categories'));
     }
+
 }

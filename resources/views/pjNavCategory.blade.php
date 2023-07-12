@@ -1,4 +1,4 @@
-{{-- 產品分類 --}}
+{{-- [無用]產品分類 --}}
    <div class="nav flex-column nav-pills navCate" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <nav class="navbar navbar-expand-lg px-0 navbar-light bg-light flex-column">
 

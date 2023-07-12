@@ -21,26 +21,20 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">商品分類</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">水果</a></li>
-                        <li class="dropdown-submenu">
-                            <a class="dropdown-item dropdown-toggle" href="#">時蔬</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">根莖類</a></li>
-                                <li><a class="dropdown-item" href="#">菇菌類</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a class="dropdown-item dropdown-toggle" href="#">冷凍食品</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">火鍋料</a></li>
-                                <li><a class="dropdown-item" href="#">調理食品</a></li>
-                            </ul>
-                        </li>
+                        @foreach ($categories as $category)
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle"
+                                    href="#">{{ $category->category_name }}</a>
+                                <ul class="dropdown-menu">
+                                    <!-- 在這裡放置副分類的迴圈 -->
+                                    {{-- @foreach ($category->subcategories as $subcategory) --}}
+                                    {{-- <li><a class="dropdown-item" href="#">{{ $subcategory->subcategory_name }}</a></li> --}}
+                                    {{-- @endforeach --}}
+                                </ul>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
-
-
-
 
                 <li class="nav-item">
                     <a class="nav-link" href="#">最新消息</a>
@@ -54,22 +48,6 @@
                 @endcan
 
             </ul>
-            {{-- ----- --}}
-            {{-- <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-
-            </ul> --}}
 
             <!-- Authentication Links -->
             <ul class="navbar-nav ml-auto">
@@ -116,7 +94,7 @@
                     </li>
                 @endguest
                 <li class="nav-item ml-auto">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('cart.view') }}">
                         <i class="fa fa-shopping-cart text-danger fa-lg"></i>
                     </a>
                 </li>

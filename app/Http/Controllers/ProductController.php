@@ -16,13 +16,12 @@ class ProductController extends Controller
     // }
     public function index()
     {
-        return view('admin.adminPage');
+        return view('home.product.productPage');
     }
-    public function indexPRM()
+
+    public function cart()
     {
-        $categories = PRCategory::all(); // 取得所有主分類資料
-        $products = Product::with('category')->paginate(6);
-        return view('admin.productManage', compact('products', 'categories'));
+        return view('home.product.cart');
     }
 
     /**

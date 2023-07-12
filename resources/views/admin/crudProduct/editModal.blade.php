@@ -13,10 +13,10 @@
             @csrf
             <!-- 表單中的欄位 -->
             <!-- 將產品ID儲存在隱藏的input欄位中 -->
-            <input type="text" id="productId" name="productId" value="{{ $product->id }}">
+            <input type="hidden" id="productId" name="productId" value="{{ $product->id }}">
 
             <div class="form-group">
-                <label for="title">標題22</label>
+                <label for="title">標題</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{ $product->title }}"
                     required>
             </div>

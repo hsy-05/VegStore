@@ -8,11 +8,11 @@ use App\Models\SubPRCategory;
 
 class PRCategoryController extends Controller
 {
-    public function indexPRC()
+    public function index()
     {
         $categories = PRCategory::with('subcategories')->paginate(6);
 
-        return view('admin.productCategory', compact('categories'));
+        return view('admin.product.productCategory', compact('categories'));
     }
 
     public function store(Request $request)

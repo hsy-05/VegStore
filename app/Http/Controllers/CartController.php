@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
+use App\Models\PRCategory;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
@@ -36,9 +37,9 @@ class CartController extends Controller
                 $totalPrice += $product->subtotal;
             }
         }
-
+        $categories = PRCategory::all(); // 取得所有主分類資料
         // 返回cart視圖並傳遞產品陣列和總價格變數
-        return view('cart', compact('products', 'totalPrice','cart'));
+        return view('home.product.cart', compact('products', 'totalPrice','cart', 'categories'));
     }
 
 

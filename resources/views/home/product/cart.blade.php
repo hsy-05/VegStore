@@ -1,5 +1,5 @@
 <!-- 顯示購物車內容 -->
-@extends('homePage')
+@extends('home.home')
 
 @section('content')
     @if (!is_null($cart) && count($cart) > 0)

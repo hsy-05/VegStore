@@ -1,6 +1,6 @@
 {{-- 產品顯示頁面 --}}
 
-@extends('homePage')
+@extends('home.home')
 
 @section('content')
     {{-- @can('admin')

@@ -21,12 +21,12 @@
 
 <body>
     <header class="text-center">
-        @include('navTop')
+        @include('home.navTop')
     </header>
 
     <div class="main">
         {{-- 幻燈片 --}}
-        @include('carouselHome')
+        @include('home.carousel')
 
         {{-- 分類 --}}
         <div class="container" style="margin-top: 10px; margin-bottom:10px">
