@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\PRCategory;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -19,9 +20,11 @@ class ProductController extends Controller
     }
     public function indexPRM()
     {
-        $products = Product::paginate(6);  //每5個資料作為一頁
-        return view('admin.productManage', compact('products'));
+        $categories = PRCategory::all(); // 取得所有主分類資料
+        $products = Product::with('category')->paginate(6);
+        return view('admin.productManage', compact('products', 'categories'));
     }
+
     /**
      * Store a newly created resource in storage.
      *

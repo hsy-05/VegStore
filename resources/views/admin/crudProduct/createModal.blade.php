@@ -29,15 +29,12 @@
             <div class="form-group">
                 <label for="category_id">分類</label>
                 <select class="form-control" id="category_id" name="category_id" required>
-                    <!-- 根據分類資料填充選項 -->
-                    {{-- @foreach ($categories as $category) --}}
-                    {{-- <option value="{{ $category->id }}">{{ $category->name }}</option> --}}
-                    <option value="蔬菜">蔬菜</option>
-                    <option value="水果">水果</option>
-                    <option value="冷凍食品">冷凍食品</option>
-                    {{-- @endforeach --}}
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
+                    @endforeach
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="image">圖片</label>
                 <input type="file" class="form-control-file" id="image" name="image">
