@@ -26,9 +26,12 @@
                                     <p class="card-text">NT$ {{ $product->price }}元</p>
                                 </div>
                                 <div class="mt-auto">
-                                    <button type="button" class="btn btn-light btn-block text-center btn-spCart">
-                                        <i class="fa fa-shopping-cart"></i> 購物車
-                                    </button>
+                                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-light btn-block text-center btn-spCart">
+                                            <i class="fa fa-shopping-cart"></i> 加入購物車
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,6 @@
 @extends('admin.adminPage')
 
 @section('content')
-
     <div class="row">
         <div class="col text-center">
             <h2 class="text-center">產品管理</h2>
@@ -24,36 +23,41 @@
         </thead>
         <tbody>
             @foreach ($categories as $category)
-                @foreach ($category->subcategories as $subcategory)
-                    <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $category->category_id }}</td>
-                        <td>{{ $category->category_name }}</td>
-                        <td>{{ $subcategory->subcategory_name }}</td>
-                        <td class="justify-content-center">
-                            <div class="d-inline-block">
-                                <button type="button" class="assign-modal btn btn-warning" data-toggle="modal"
-                                    data-target="#assignModal{{ $category->id }}" data-id="{{ $category->id }}">修改</button>
-                            </div>
+                <tr>
+                    <th scope="row" class="align-middle">{{ $loop->iteration }}</th>
+                    <td class="align-middle">{{ $category->category_id }}</td>
+                    <td class="align-middle">{{ $category->category_name }}</td>
+                    <td class="align-middle">
+                        @if ($category->subcategories->count() > 0)
+                            @foreach ($category->subcategories as $subcategory)
+                                {{ $subcategory->subcategory_name }}<br>
+                            @endforeach
+                        @else
+                            ---
+                        @endif
+                    </td>
+                    <td class="justify-content-center align-middle">
+                        <div class="d-inline-block">
+                            <button type="button" class="assign-modal btn btn-warning" data-toggle="modal"
+                                data-target="#assignModal{{ $category->id }}" data-id="{{ $category->id }}">修改</button>
+                        </div>
 
-                            <div class="d-inline-block">
-                                <form action="#" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger"
-                                        onclick="return confirm('確定刪除嗎？')">刪除</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                @endforeach
+                        <div class="d-inline-block">
+                            <form action="#" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('確定刪除嗎？')">刪除</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
             @endforeach
         </tbody>
 
     </table>
     </div>
 
-    {{-- 互動視窗 --}}
+    {{-- [互動視窗] --}}
 
     {{-- [CRUD]產品分類 --}}
     <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel"

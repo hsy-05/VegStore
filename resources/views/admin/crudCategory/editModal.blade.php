@@ -7,7 +7,7 @@
     </div>
     <div class="modal-body">
         <!-- 在這裡放置產品相關資料的表單 -->
-        <form id="editProductForm{{ $category->id }}" action="{{ route('categorys.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+        <form id="editProductForm{{ $category->id }}" action="{{ route('categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
             @method('POST')
 
             {{ csrf_field() }}

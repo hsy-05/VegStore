@@ -28,9 +28,10 @@ php artisan migrate:rollback --path=\database\migrations\flights.php
 php artisan migrate:reset
 
 ------------------------------------------------------------------
-
 ## 清除所有版本的 Migration 並重新執行
 php artisan migrate:refresh
 
-
+------------------------------------------------------------------
+## 優化項目的自動加載速度
+composer dump-autoload
 

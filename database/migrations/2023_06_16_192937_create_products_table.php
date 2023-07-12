@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('product_id')->unique();
             $table->string('category_id');
+            $table->string('subcategory_id')->nullable();
             $table->string('title');  //
             $table->string('description')->nullable();
             $table->integer('price');  //

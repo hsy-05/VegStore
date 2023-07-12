@@ -49,6 +49,7 @@ class ProductController extends Controller
 
         // 將表單欄位資料設定到 Product 物件的屬性中
         $product->category_id = $request->input('category_id');
+        $product->subcategory_id = $request->input('subcategory_id');
         $product->price = $request->input('price');
         $product->title = $request->input('title');
         $product->description = $request->input('description');

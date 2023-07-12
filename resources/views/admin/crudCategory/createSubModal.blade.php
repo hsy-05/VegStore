@@ -8,14 +8,14 @@
     </div>
     <div class="modal-body">
         <!-- 在這裡放置產品相關資料的表單 -->
-        <form id="addSubCategoryForm" action="{{ route('subcategorys.store') }}" method="POST" enctype="multipart/form-data">
+        <form id="addSubCategoryForm" action="{{ route('subcategories.store') }}" method="POST" enctype="multipart/form-data">
             @method('POST')
             {{ csrf_field() }}
 
             <!-- 表單中的欄位 -->
             <div class="form-group">
-                <label for="category_id">主分類</label>
-                <select class="form-control" id="category_id" name="category_id" required>
+                <label for="pr_category_id">主分類</label>
+                <select class="form-control" id="pr_category_id" name="pr_category_id" required>
                     @foreach ($categories as $category)
                         <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
                     @endforeach

@@ -25,6 +25,8 @@ use App\Http\Controllers\SubPRCategoryController; // 新增這行
 //主頁面
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('productPage');
 
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'indexProfile'])->name('profile');
+
 // 註冊身份驗證相關路由
 Auth::routes();
 
@@ -38,6 +40,7 @@ Route::get('/adminPage', [ProductController::class, 'index'])->name('adminPage')
 Route::get('/adminPage/productManage', [ProductController::class, 'indexPRM'])->name('productManage');
 
 
+// --------------------------------------------
 // 創建產品
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
@@ -47,17 +50,21 @@ Route::put('/products/{id}', [ProductController::class, 'update'])->name('produc
 // 刪除產品
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
+//購物車
+Route::post('/add-to-cart/{product}', 'App\Http\Controllers\CartController@addToCart')->name('cart.add');
+
+Route::get('/cart', 'App\Http\Controllers\CartController@viewCart')->name('cart.view');
 
 // --------------------------------------------
 Route::get('/adminPage/prCategory', [PRCategoryController::class, 'indexPRC'])->name('prCategory');
 
 // 創建分類
-Route::post('/categorys', [PRCategoryController::class, 'store'])->name('categorys.store');
+Route::post('/categories', [PRCategoryController::class, 'store'])->name('categories.store');
 // 更新分類
-Route::post('/categorys/{id}', [PRCategoryController::class, 'update'])->name('categorys.update');
+Route::post('/categories/{id}', [PRCategoryController::class, 'update'])->name('categories.update');
 
 // 創建副分類
-Route::post('/subcategorys', [SubPRCategoryController::class, 'store'])->name('subcategorys.store');
+Route::post('/subcategories', [SubPRCategoryController::class, 'store'])->name('subcategories.store');
 // --------------------------------------------
 
 //無用

@@ -83,10 +83,10 @@
 
                         <div class="dropdown-menu text-center">
                             @if (Route::has('login'))
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @endif
                             @if (Route::has('register'))
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         </div>
                     </li>
@@ -100,6 +100,9 @@
                         </a>
 
                         <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                            @if (Route::has('profile'))
+                                <a class="dropdown-item" href="{{ route('profile') }}">{{ __('Profile') }}</a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">

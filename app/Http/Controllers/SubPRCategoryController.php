@@ -13,7 +13,7 @@ class SubPRCategoryController extends Controller
     {
             // 新增副分類的情況
             $subcategory = new SubPRCategory();
-            $subcategory->category_id = $request->input('category_id');
+            $subcategory->pr_category_id = $request->input('pr_category_id');
             $subcategory->subcategory_name = $request->input('subcategory_name');
             $subcategory->save();
 

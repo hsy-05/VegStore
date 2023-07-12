@@ -1,7 +1,6 @@
 @extends('admin.adminPage')
 
 @section('content')
-
     <div class="row">
         <div class="col text-center">
             <h2 class="text-center">產品管理</h2>
@@ -24,12 +23,12 @@
         <tbody>
             @foreach ($products as $product)
                 <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $product->title }}</td>
-                    <td>{{ $product->description }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td><img src="{{ asset('/images/uploads/productImage/' . $product->image) }}" style="width: 50px"></td>
-                    <td class="justify-content-center">
+                    <th scope="row" class="align-middle">{{ $loop->iteration }}</th>
+                    <td class="align-middle">{{ $product->title }}</td>
+                    <td class="align-middle">{{ $product->description }}</td>
+                    <td class="align-middle">{{ $product->price }}</td>
+                    <td class="align-middle"><img src="{{ asset('/images/uploads/productImage/' . $product->image) }}" style="width: 50px"></td>
+                    <td class="justify-content-center align-middle">
                         <div class="d-inline-block">
                             <button type="button" class="assign-modal btn btn-warning" data-toggle="modal"
                                 data-target="#assignModal{{ $product->id }}" data-id="{{ $product->id }}">修改</button>
