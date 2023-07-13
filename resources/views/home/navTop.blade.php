@@ -17,20 +17,14 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </li>
-
+                @php($categories = $categories ?? [])
+                <!-- 新增這行程式碼 -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">商品分類</a>
                     <ul class="dropdown-menu">
                         @foreach ($categories as $category)
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle"
-                                    href="#">{{ $category->category_name }}</a>
-                                <ul class="dropdown-menu">
-                                    <!-- 在這裡放置副分類的迴圈 -->
-                                    {{-- @foreach ($category->subcategories as $subcategory) --}}
-                                    {{-- <li><a class="dropdown-item" href="#">{{ $subcategory->subcategory_name }}</a></li> --}}
-                                    {{-- @endforeach --}}
-                                </ul>
+                                <a class="dropdown-item" href="#">{{ $category->category_name }}</a>
                             </li>
                         @endforeach
                     </ul>

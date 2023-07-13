@@ -37,9 +37,8 @@ class HomeController extends Controller
     // 主頁面
     public function index()
     {
-        $categories = PRCategory::all(); // 取得所有主分類資料
         $products = Product::with('category')->paginate(6);
-        return view('home.product.productPage', compact('products', 'categories'));
+        return view('home.product.productPage', compact('products'));
     }
 
 }

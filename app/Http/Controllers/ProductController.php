@@ -93,6 +93,7 @@ class ProductController extends Controller
 
         // 更新產品的資料
         $product->category_id = $request->input('category_id');
+        $product->subcategory_id = $request->input('subcategory_id');
         $product->price = $request->input('price');
         $product->title = $request->input('title');
         $product->description = $request->input('description');

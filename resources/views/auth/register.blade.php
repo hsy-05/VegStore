@@ -1,5 +1,5 @@
 {{-- 會員註冊 --}}
-@extends('homePage')
+@extends('home.home')
 
 @section('content')
     <div class="container">

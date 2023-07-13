@@ -1,5 +1,5 @@
 {{-- 無用 --}}
-@extends('homePage')
+@extends('home.home')
 
 @section('content')
 <div class="container">

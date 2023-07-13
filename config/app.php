@@ -16,6 +16,7 @@ return [
     |
     */
 
+    //設定應用程式的名稱
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
@@ -29,6 +30,7 @@ return [
     |
     */
 
+    //設定應用程式的環境
     'env' => env('APP_ENV', 'production'),
 
     /*
@@ -70,6 +72,7 @@ return [
     |
     */
 
+    //時區
     'timezone' => 'PRC', //[修改]原UTC
 
     /*
@@ -83,6 +86,7 @@ return [
     |
     */
 
+    //設定應用程式的語言
     // 'locale' => 'en',
   'locale' => 'zh_tw',
 
@@ -156,6 +160,7 @@ return [
     |
     */
 
+    // 設定應用程式的服務提供者
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...
@@ -184,6 +189,7 @@ return [
     |
     */
 
+    // 設定應用程式的別名
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class, //laravel-debugbar

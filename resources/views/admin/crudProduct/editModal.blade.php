@@ -7,8 +7,8 @@
     </div>
     <div class="modal-body">
         <!-- 在這裡放置產品相關資料的表單 -->
-        <form id="editProductForm{{ $product->id }}" action="{{ route('products.update', $product->id) }}" method="POST"
-            enctype="multipart/form-data">
+        <form id="editProductForm{{ $product->id }}" action="{{ route('products.update', $product->id) }}"
+            method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <!-- 表單中的欄位 -->
@@ -33,17 +33,13 @@
             </div>
             <div class="form-group">
                 <label for="category_id">分類</label>
-                <select class="form-control" id="category_id" name="category_id" value="{{ $product->category_id }}"
-                    required>
-                    <!-- 根據分類資料填充選項 -->
-                    {{-- @foreach ($categories as $category) --}}
-                    {{-- <option value="{{ $category->id }}">{{ $category->name }}</option> --}}
-                    <option value="蔬菜">蔬菜</option>
-                    <option value="水果">水果</option>
-                    <option value="冷凍食品">冷凍食品</option>
-                    {{-- @endforeach --}}
+                <select class="form-control" id="category_id" name="category_id" required>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
+                    @endforeach
                 </select>
             </div>
+
             <!-- 刪除隱藏的input欄位 -->
             <div class="form-group">
                 <label for="image">圖片</label>

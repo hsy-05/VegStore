@@ -12,8 +12,8 @@
             <thead>
                 <tr class="table-info">
                     <th scope="col">產品名稱</th>
-                    <th scope="col">產品介紹</th>
                     <th scope="col">產品圖片</th>
+                    <th scope="col">產品數量</th>
                     <th scope="col">價格</th>
                     <th scope="col" class="col-2">操作</th>
                 </tr>
@@ -22,14 +22,23 @@
                 @foreach ($products as $product)
                     <tr>
                         <td class="align-middle">{{ $product->title }}</td>
-                        <td class="align-middle">{{ $cart[$product->id]['quantity'] }}</td>
                         <td class="align-middle"><img src="{{ asset('/images/uploads/productImage/' . $product->image) }}"
                                 style="width: 50px">
                         </td>
+                        <td class="align-middle">
+                            {{ isset($cart[$product->id]) ? $cart[$product->id]['quantity'] : 0 }}
+                        </td>
                         <td class="align-middle">{{ $product->price }}</td>
-
+                        <td class="align-middle">
+                            <form action="{{ route('cart.remove', $product->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">刪除</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
+
                 <tr>
                     <td colspan="3" class="text-end">總價格：</td>
                     <td>{{ $totalPrice }}</td>

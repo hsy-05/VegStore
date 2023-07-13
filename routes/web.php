@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController; // 新增這行
 use App\Http\Controllers\PRCategoryController; // 新增這行
 use App\Http\Controllers\SubPRCategoryController; // 新增這行
+use App\Http\Controllers\CartController; // 新增這行
 
 
 // 註冊身份驗證相關路由
@@ -36,10 +37,14 @@ Route::put('/products/{id}', [ProductController::class, 'update'])->name('produc
 // 刪除產品
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
+
+// --------------------------------------------
 //購物車
 Route::post('/add-to-cart/{product}', 'App\Http\Controllers\CartController@addToCart')->name('cart.add');
 
 Route::get('/cart', 'App\Http\Controllers\CartController@viewCart')->name('cart.view');
+
+Route::delete('/cart/remove/{productId}', [App\Http\Controllers\CartController::class, 'removeFromCart'])->name('cart.remove');
 
 // --------------------------------------------
 

@@ -25,7 +25,7 @@ class CategoryServiceProvider extends ServiceProvider
     public function boot()
     {
         // 使用 view composer 綁定主分類資料到 navTop 視圖
-        view()->composer('navTop', function ($view) {
+        view()->composer('home.navTop', function ($view) {
             $categories = PRCategory::all();
             $view->with('categories', $categories);
         });

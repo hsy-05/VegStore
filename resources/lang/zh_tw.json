@@ -13,13 +13,14 @@
     "Register": "註冊",
     "Name": "姓名",
     "Email": "信箱",
-    "Adress": "地址",
+    "Address": "地址",
     "Cellphone": "手機",
     "Profile": "會員資料",
     "Logout": "登出",
     "Welcome": "歡迎",
     "You are logged in!":"你已登入!",
-    "validation.confirmed":"validation.confirmed",
+    "validation.confirmed":"密碼兩次輸入不相同",
+    "The password field must be at least 8 characters.":"密碼字段必須至少包含8個數字或符號",
 
     "//":"導覽列",
 

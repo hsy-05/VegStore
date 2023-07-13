@@ -27,8 +27,8 @@ class CartController extends Controller
             // 檢查是否找到有效的產品資料
             if ($product) {
                 // 設定產品的數量屬性並計算小計
-                $product->quantity = (int) $quantity;
-                $product->subtotal = $product->price * $product->quantity;
+                $quantity = (int) $cart[$product->id]['quantity'];
+                $product->subtotal = $product->price * $quantity;
 
                 // 將產品添加到產品陣列中
                 $products[] = $product;
@@ -37,9 +37,8 @@ class CartController extends Controller
                 $totalPrice += $product->subtotal;
             }
         }
-        $categories = PRCategory::all(); // 取得所有主分類資料
         // 返回cart視圖並傳遞產品陣列和總價格變數
-        return view('home.product.cart', compact('products', 'totalPrice','cart', 'categories'));
+        return view('home.product.cart', compact('products', 'totalPrice', 'cart'));
     }
 
 
@@ -56,11 +55,26 @@ class CartController extends Controller
             $cart[$product->id] = [
                 'product_id' => $product->id,
                 'quantity' => 1,
+                'price' => $product->price, // 新增價格屬性
             ];
         }
 
         Session::put('cart', $cart); // 將更新後的購物車資料存入 session
 
         return redirect()->back()->with('success', '產品已加入購物車！');
+    }
+
+    public function removeFromCart($productId)
+    {
+        $cart = Session::get('cart', []);
+
+        // 檢查購物車中是否存在指定產品
+        if (isset($cart[$productId])) {
+            unset($cart[$productId]); // 從購物車中移除產品
+        }
+
+        Session::put('cart', $cart); // 更新購物車資料
+
+        return redirect()->back()->with('success', '產品已從購物車中刪除！');
     }
 }
