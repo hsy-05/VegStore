@@ -77,4 +77,32 @@ class CartController extends Controller
 
         return redirect()->back()->with('success', '產品已從購物車中刪除！');
     }
+    public function decreaseQuantity($productId)
+    {
+        $cart = session('cart', []);
+
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity']--;
+
+            if ($cart[$productId]['quantity'] <= 0) {
+                unset($cart[$productId]);
+            }
+
+            session()->put('cart', $cart);
+        }
+
+        return redirect()->back()->with('success', '產品數量已減少！');
+    }
+
+    public function increaseQuantity($productId)
+    {
+        $cart = session('cart', []);
+
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity']++;
+            session()->put('cart', $cart);
+        }
+
+        return redirect()->back()->with('success', '產品數量已增加！');
+    }
 }

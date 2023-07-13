@@ -41,6 +41,8 @@ Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('pr
 // --------------------------------------------
 //購物車
 Route::post('/add-to-cart/{product}', 'App\Http\Controllers\CartController@addToCart')->name('cart.add');
+Route::post('/cart/decrease/{product}', 'App\Http\Controllers\CartController@decreaseQuantity')->name('cart.decrease');
+Route::post('/cart/increase/{product}', 'App\Http\Controllers\CartController@increaseQuantity')->name('cart.increase');
 
 Route::get('/cart', 'App\Http\Controllers\CartController@viewCart')->name('cart.view');
 

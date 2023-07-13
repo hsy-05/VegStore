@@ -32,15 +32,15 @@ $(document).ready(function () {
 // });
 
 //[管理者]修改按鈕
-$(document).ready(function() {
+$(document).ready(function () {
     // 監聽點擊修改按鈕事件
-    $('.assign-modal').click(function() {
+    $('.assign-modal').click(function () {
         var productId = $(this).data('id');
         $('#editProductForm' + productId).addClass('active');
     });
 
     // 監聽表單提交事件
-    $('#editProductForm').submit(function() {
+    $('#editProductForm').submit(function () {
         // 僅提交具有 active class 的表單
         if (!$(this).hasClass('active')) {
             return false;

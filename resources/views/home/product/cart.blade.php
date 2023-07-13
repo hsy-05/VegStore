@@ -25,9 +25,20 @@
                         <td class="align-middle"><img src="{{ asset('/images/uploads/productImage/' . $product->image) }}"
                                 style="width: 50px">
                         </td>
-                        <td class="align-middle">
-                            {{ isset($cart[$product->id]) ? $cart[$product->id]['quantity'] : 0 }}
+                        <td class="align-middle text-center">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <form action="{{ route('cart.decrease', $product->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-secondary me-2">-</button>
+                                </form>
+                                <span class="mx-2">{{ isset($cart[$product->id]) ? $cart[$product->id]['quantity'] : 0 }}</span>
+                                <form action="{{ route('cart.increase', $product->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-secondary">+</button>
+                                </form>
+                            </div>
                         </td>
+
                         <td class="align-middle">{{ $product->price }}</td>
                         <td class="align-middle">
                             <form action="{{ route('cart.remove', $product->id) }}" method="POST">
